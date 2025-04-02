@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower Shop</title>
+    <title>Dreams & Days - Flower Shop</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,11 @@
             padding: 15px;
             text-align: center;
             font-size: 24px;
+        }
+        .header img {
+            width: 100px; /* Adjust the size of the logo */
+            vertical-align: middle;
+            margin-right: 10px;
         }
         .nav {
             background-color: #ff1493;
@@ -71,23 +76,46 @@
             width: 100%;
             margin-top: 10px;
             border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
         .product button:hover {
             background-color: #ff1493;
+            transform: scale(1.05);
         }
-        @media (max-width: 600px) {
+        .contact {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact h2 {
+            margin-bottom: 10px;
+        }
+        .contact p {
+            font-size: 16px;
+            color: gray;
+        }
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
+            }
+            .nav a {
+                display: block;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">Flower Shop</div>
+    <div class="header">
+        <img src="https://img.freepik.com/premium-vector/dream-logo-design-illustration-template_723072-187.jpg?semt=ais_hybrid" alt="Flower 1">
+        Dreams & Days
+    </div>
     <div class="nav">
         <a href="index.html">Home</a>
-        <a href="about.html">Company Overview</a>
         <a href="visionmission.html">Vision & Mission</a>
         <a href="products.html">Products</a>
         <a href="service.html">Services</a>
@@ -97,21 +125,22 @@
     </div>
     <div class="container">
         <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Flower 1">
+            <img src="https://cdn.bloomsflora.com/uploads/product/bloomsflora/OCT2024/EternalRedRoseBouquet-1730120069749.webp" alt="Flower 1">
             <h2>Rose Bouquet</h2>
-            <p>Beautiful red roses bouquet.</p>
+            <p>Beautiful red roses bouquet -RS.1250:00</p>
             <button>Add to Cart</button>
         </div>
+        
         <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Flower 2">
+            <img src="https://bouqs.com/media/W1siZiIsIjIwMjIvMDEvMTkvMjAvMDkvNTkvMGFhOTI3NjItY2Y0NS00YzJmLThmOTgtNzBjOGEzYWQ2ZmY5L0hlYXJ0ZmVsdF9PdmVyX0RlbHV4ZTA2NTUuanBnIl1d/Heartfelt_Over_Deluxe0655.jpg?sha=65b4e95dc5160ff5" alt="Flower 2">
             <h2>Tulip Bouquet</h2>
-            <p>Bright and colorful tulip bouquet.</p>
+            <p>Bright and colorful tulip bouquet - RS.2850:00</p>
             <button>Add to Cart</button>
         </div>
         <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Flower 3">
+            <img src="https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp" alt="Flower 3">
             <h2>Lily Bouquet</h2>
-            <p>Elegant white lilies bouquet.</p>
+            <p>Elegant white lilies bouquet - RS.3000:00</p>
             <button>Add to Cart</button>
         </div>
     </div>
