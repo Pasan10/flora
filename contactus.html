@@ -1,42 +1,151 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact us</title>
-    <style>.contact {
-        text-align: center;
-        padding: 20px;
-        background: #ffe4e1; /* Light pink background */
-        margin: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .contact h2 {
-        margin-bottom: 10px;
-        color: #ff1493; /* Deep pink for the title */
-        font-size: 22px;
-    }
-    
-    .contact p {
-        font-size: 16px;
-        color: #333; /* Dark gray for better contrast */
-        margin: 5px 0;
-    }
-    
-    .contact p i {
-        color: #ff69b4; /* Soft pink for icons */
-        margin-right: 8px;
-    }
-    </style>
+    <title>Dreams & Days - Flower Shop</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="contact">
-        <h2>Contact Us</h2>
-        <p>Email: support@flowershop.com</p>
-        <p>Phone: +94 769092626</p>
-        <p>Address: 123 Flower Street,Mathugama</p>
+    <div class="header">
+        <img src="https://drive.google.com/thumbnail?id=1De7eZOQOIfz2VfxKJ242pDQMOfew7smW" alt="Flower Shop Logo">
+        Dreams & Days
     </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="visionmission.html">Vision & Mission</a>
+        <a href="products.html">Products</a>
+        <a href="service.html">Services</a>
+        <a href="staff.html">Staff</a>
+        <a href="jobs.html">Careers</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+
+    <div class="cart-modal" id="cart-modal">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            Total: <span id="cart-total">RS.0</span>
+        </div>
+        <div class="cart-footer">
+            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            <a class="proceed-btn tdn" href="checkout.html">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>contact us</title>
+        <style>.contact {
+            text-align: center;
+            padding: 20px;
+            background: #ffe4e1; /* Light pink background */
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact h2 {
+            margin-bottom: 10px;
+            color: #ff1493; /* Deep pink for the title */
+            font-size: 22px;
+        }
+        
+        .contact p {
+            font-size: 16px;
+            color: #333; /* Dark gray for better contrast */
+            margin: 5px 0;
+        }
+        
+        .contact p i {
+            color: #ff69b4; /* Soft pink for icons */
+            margin-right: 8px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>Email: dreamsdays123@gmail.com </p>
+            <p>Phone: +94 741654224</p>
+            <p>Address: Ampara Town, Sri Lanka</p>
+        </div>
+    </body>
+    </html>
+
+
+
+
+
+
+    
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    
+
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            let cartItems = document.getElementById('cart-items');
+            let cartTotal = 0;
+
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                cartTotal += item.price;
+                cartItems.innerHTML += `
+                    <div class='cart-item'>
+                        <span>${item.name} - RS.${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total').innerText = `RS.${cartTotal}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function toggleCart() {
+            let modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('cart-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", updateCart);
+    </script>
+    
 </body>
 </html>

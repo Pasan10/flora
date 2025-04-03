@@ -1,29 +1,138 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
 
-<body bgcolor="#009999">
-<h1 align="center">&nbsp;</h1>
-<h1 align="center">Dreams & Days </h1>
-<a>
-<img src="WhatsApp Image 2025-03-24 at 15.24.56_f4137dcd.jpg" width="720" height="400" alt="1"  marque/>
-<p><strong>	Vision:</strong><br />
-&quot;To become the most beloved destination for floral artistry, where every  bloom brings joy and transforms moments into lasting memories.&quot;</p>
-<p><br />
-  <strong>Mission:</strong><br />
-  &quot;Our mission is to create unique, high-quality floral arrangements that  inspire beauty and celebrate life's special occasions. We strive to provide  personalized service, foster community connections, and promote sustainable  practices that honor nature&rsquo;s artistry.&quot;</p>
-<p><br />
-  <strong>Goals:</strong></p>
-<ul type="disc">
-  <li><strong>Deliver Excellence:</strong> Consistently       provide creative and fresh floral designs that exceed customer       expectations.</li>
-  <li><strong>Enhance Customer       Experience:</strong> Build lasting relationships through personalized       service and attention to detail.</li>
-  <li><strong>Promote       Sustainability:</strong> Adopt eco-friendly practices and source local,       seasonal blooms to minimize environmental impact.</li>
-  <li><strong>Community Engagement:</strong> Become an       integral part of the local community through partnerships, events, and       charitable initiatives.</li>
-  <li><strong>Innovate       Continuously:</strong> Stay ahead in floral design trends and continuously       introduce innovative arrangements that captivate our clients.</li>
-</ul>
-<p>&nbsp;</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams & Days - Flower Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="https://drive.google.com/thumbnail?id=1De7eZOQOIfz2VfxKJ242pDQMOfew7smW" alt="Flower Shop Logo">
+        Dreams & Days
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="visionmission.html">Vision & Mission</a>
+        <a href="products.html">Products</a>
+        <a href="service.html">Services</a>
+        <a href="staff.html">Staff</a>
+        <a href="jobs.html">Careers</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+
+    <div class="cart-modal" id="cart-modal">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            Total: <span id="cart-total">RS.0</span>
+        </div>
+        <div class="cart-footer">
+            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            <a class="proceed-btn tdn" href="checkout.html">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    </head>
+    
+    <body bgcolor="#009999">
+    <h1 align="center">&nbsp;</h1>
+    <h1 align="center">Dreams & Days </h1>
+    <a>
+    <img src="WhatsApp Image 2025-03-24 at 15.24.56_f4137dcd.jpg" width="720" height="400" alt="1"  marque/>
+    <p><strong>	Vision:</strong><br />
+    &quot;To become the most beloved destination for floral artistry, where every  bloom brings joy and transforms moments into lasting memories.&quot;</p>
+    <p><br />
+      <strong>Mission:</strong><br />
+      &quot;Our mission is to create unique, high-quality floral arrangements that  inspire beauty and celebrate life's special occasions. We strive to provide  personalized service, foster community connections, and promote sustainable  practices that honor nature&rsquo;s artistry.&quot;</p>
+    <p><br />
+      <strong>Goals:</strong></p>
+    <ul type="disc">
+      <li><strong>Deliver Excellence:</strong> Consistently       provide creative and fresh floral designs that exceed customer       expectations.</li>
+      <li><strong>Enhance Customer       Experience:</strong> Build lasting relationships through personalized       service and attention to detail.</li>
+      <li><strong>Promote       Sustainability:</strong> Adopt eco-friendly practices and source local,       seasonal blooms to minimize environmental impact.</li>
+      <li><strong>Community Engagement:</strong> Become an       integral part of the local community through partnerships, events, and       charitable initiatives.</li>
+      <li><strong>Innovate       Continuously:</strong> Stay ahead in floral design trends and continuously       introduce innovative arrangements that captivate our clients.</li>
+    </ul>
+    <p>&nbsp;</p>
+    </body>
+    </html>
+
+
+
+
+
+
+    
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    
+
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            let cartItems = document.getElementById('cart-items');
+            let cartTotal = 0;
+
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                cartTotal += item.price;
+                cartItems.innerHTML += `
+                    <div class='cart-item'>
+                        <span>${item.name} - RS.${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total').innerText = `RS.${cartTotal}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function toggleCart() {
+            let modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('cart-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", updateCart);
+    </script>
+    
 </body>
 </html>

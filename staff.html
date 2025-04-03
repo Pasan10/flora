@@ -1,0 +1,269 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams & Days - Flower Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="https://drive.google.com/thumbnail?id=1De7eZOQOIfz2VfxKJ242pDQMOfew7smW" alt="Flower Shop Logo">
+        Dreams & Days
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="visionmission.html">Vision & Mission</a>
+        <a href="products.html">Products</a>
+        <a href="service.html">Services</a>
+        <a href="staff.html">Staff</a>
+        <a href="jobs.html">Careers</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+
+    <div class="cart-modal" id="cart-modal">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            Total: <span id="cart-total">RS.0</span>
+        </div>
+        <div class="cart-footer">
+            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            <a class="proceed-btn tdn" href="checkout.html">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Global Body Styles */
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f2f5;
+                color: #333;
+                line-height: 1.6;
+            }
+    
+            /* Add a subtle background image or pattern */
+            body {
+                background: url('https://www.toptal.com/designers/subtlepatterns/patterns/pw-maze.png'), #f0f2f5;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+    
+            /* Vision and Mission Section */
+            .vision-mission {
+                text-align: center;
+                padding: 50px;
+                background: linear-gradient(135deg, #f0e5f9, #ffebf0);
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+                max-width: 800px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+    
+            .vision-mission:hover {
+                transform: scale(1.02);
+                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+            }
+    
+            /* Title Styles */
+            .vision-mission h2 {
+                margin-bottom: 20px;
+                color: #ff1493;
+                font-size: 32px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition: color 0.3s ease;
+            }
+    
+            .vision-mission h2:hover {
+                color: #ff69b4;
+            }
+    
+            /* Paragraph Styles */
+            .vision-mission p {
+                font-size: 18px;
+                color: #555;
+                font-weight: 300;
+                margin-bottom: 25px;
+                line-height: 1.8;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            /* Add a subtle animation for the paragraph text */
+            .vision-mission p {
+                animation: fadeIn 1.5s ease-in-out;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+    
+            /* After-Sales Support Section */
+            .after-sales-support {
+                text-align: center;
+                padding: 40px;
+                background: linear-gradient(135deg, #e8f0fc, #f4c2c2);
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+                max-width: 800px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+    
+            .after-sales-support:hover {
+                transform: scale(1.02);
+                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+            }
+    
+            /* Title for After-Sales Support */
+            .after-sales-support h2 {
+                margin-bottom: 20px;
+                color: #ff1493;
+                font-size: 28px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+    
+            /* List Styles for After-Sales Support */
+            .after-sales-support ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .after-sales-support ul li {
+                font-size: 18px;
+                color: #555;
+                margin-bottom: 15px;
+                font-weight: 300;
+                line-height: 1.6;
+            }
+    
+            /* Responsive Design for Mobile Devices */
+            @media (max-width: 600px) {
+                .vision-mission, .after-sales-support {
+                    padding: 30px;
+                    margin: 20px;
+                }
+                .vision-mission h2, .after-sales-support h2 {
+                    font-size: 24px;
+                }
+                .vision-mission p, .after-sales-support ul li {
+                    font-size: 16px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    
+    
+    
+        <!-- After-Sales Support Section -->
+        <div class="after-sales-support">
+            <h2>After-Sales Support</h2>
+            <ul>
+                <li><strong>1. Follow-up with Customers:</strong> Send a thank-you message via email, SMS, or WhatsApp after purchase. Ask for feedback and offer a discount for their next order.</li>
+                <li><strong>2. Handle Complaints Promptly:</strong> Offer a replacement or refund for damaged or wilted flowers. Train staff to handle customer issues politely and efficiently.</li>
+                <li><strong>3. Care Tips for Flowers:</strong> Provide care instructions with every order. Send reminders via email or social media on how to keep flowers fresh longer.</li>
+                <li><strong>4. Loyalty & Rewards Program:</strong> Offer points for every purchase that can be redeemed for discounts. Provide exclusive deals for returning customers.</li>
+                <li><strong>5. Personalized Recommendations:</strong> Use customer purchase history to suggest flowers for upcoming occasions. Offer subscription-based flower delivery services.</li>
+                <li><strong>6. Social Media & Online Engagement:</strong> Encourage customers to share photos of their flowers and tag your shop. Run contests or giveaways to keep them engaged.</li>
+                <li><strong>7. Seasonal Promotions & Reminders:</strong> Send reminders for anniversaries, birthdays, and special occasions. Offer early bird discounts for events like Valentine’s Day and Mother’s Day.</li>
+            </ul>
+        </div>
+    </body>
+    </html>
+
+
+
+
+
+
+    
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    
+
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            let cartItems = document.getElementById('cart-items');
+            let cartTotal = 0;
+
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                cartTotal += item.price;
+                cartItems.innerHTML += `
+                    <div class='cart-item'>
+                        <span>${item.name} - RS.${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total').innerText = `RS.${cartTotal}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCart();
+        }
+
+        function toggleCart() {
+            let modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('cart-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", updateCart);
+    </script>
+    
+</body>
+</html>
+

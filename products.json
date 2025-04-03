@@ -1,62 +1,50 @@
 [
     {
-        "name": "Rose Bouquet",
-        "price": 1250,
-        "image": "https://cdn.bloomsflora.com/uploads/product/bloomsflora/OCT2024/EternalRedRoseBouquet-1730120069749.webp",
+        "name": "Wedding flower bouquet and wedding decorations",
+        "image": "https://drive.google.com/thumbnail?id=1KuEzO6aD9Ketl9m6TWFt2dUGQrh_b1xp",
         "description": "Beautiful red roses bouquet"
     },
     {
-        "name": "Tulip Bouquet",
+        "name": "Small Flower Boquet",
         "price": 2850,
-        "image": "https://bouqs.com/media/W1siZiIsIjIwMjIvMDEvMTkvMjAvMDkvNTkvMGFhOTI3NjItY2Y0NS00YzJmLThmOTgtNzBjOGEzYWQ2ZmY5L0hlYXJ0ZmVsdF9PdmVyX0RlbHV4ZTA2NTUuanBnIl1d/Heartfelt_Over_Deluxe0655.jpg?sha=65b4e95dc5160ff5",
+        "image": "https://drive.google.com/thumbnail?id=1XnB_O0ncPOv9Wa31SOF44T3VlwI-BM9P",
         "description": "Bright and colorful tulip bouquet"
     },
     {
-        "name": "Lily Bouquet",
+        "name": "Roses",
         "price": 3000,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=1RbvixXL6yxbU9HWgObwjCxDANIpetz_h",
         "description": "Elegant white lilies bouquet"
     },
     {
-        "name": "Daffodil Bouquet",
+        "name": "Mini Flower Boquet",
         "price": 1500,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=1eEraqiE2-QPKl-bnqlVd-XKWx8252Zp4",
         "description": "Vibrant yellow daffodils bouquet"
     },
     {
-        "name": "Orchid Bouquet",
+        "name": "Medium Flower Bouquet",
         "price": 3500,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=1qTdSF8d-7pQfCEyCUYr-pGlSBExbXwcG",
         "description": "Exotic orchid flower bouquet"
     },
     {
-        "name": "Sunflower Bouquet",
+        "name": "Large flower Bouquet",
         "price": 2200,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=1RBMhhhm2sbCuSJoOd0Yn6sM0Kp08R_5b",
         "description": "Cheerful and bright sunflower bouquet"
     },
     {
-        "name": "Tulip Mix",
+        "name": "Flower Boquet",
         "price": 2600,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=1OdeuuxXKkmIFCFhcCMnk5Z6pgh69xXn-",
         "description": "Mixed colorful tulips for any occasion"
     },
     {
-        "name": "Carnation Bouquet",
+        "name": "Customized flower  Bouquet",
         "price": 1900,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
+        "image": "https://drive.google.com/thumbnail?id=11BveR66MTA0Dm2gnZWNtNtXmj8ecqvsh",
         "description": "Elegant and fragrant carnation bouquet"
-    },
-    {
-        "name": "Peony Bouquet",
-        "price": 3800,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
-        "description": "Soft and delicate peony flowers bouquet"
-    },
-    {
-        "name": "Gerbera Daisy Bouquet",
-        "price": 1700,
-        "image": "https://www.royal-fleur.com/bmz_cache/e/elegant-white-lilies-bouquetjpg.image.600x600.webp",
-        "description": "Colorful and fresh gerbera daisies bouquet"
     }
+
 ]
