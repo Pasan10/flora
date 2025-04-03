@@ -4,13 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreams & Days - Flower Shop</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #ff1493;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header img {
+            margin-right: 10px;
+            height: 50px;
+            width: auto;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        .nav a {
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #ff1493;
+        }
+
+        /* Product Section */
+        #products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product h2 {
+            color: #ff1493;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: gray;
+        }
+
+        .product button {
+            padding: 10px;
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #ff69b4;
+        }
+
+        /* Service Section */
+        .service {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .service h2 {
+            margin-bottom: 20px;
+            color: #ff1493;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .service p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .service .quote {
+            font-style: italic;
+            color: #ff1493;
+            margin-top: 10px;
+        }
+
+        .service .mission {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .cart {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            #products-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Header -->
     <div class="header">
         <img src="https://drive.google.com/thumbnail?id=1De7eZOQOIfz2VfxKJ242pDQMOfew7smW" alt="Flower Shop Logo">
         Dreams & Days
     </div>
+
+    <!-- Navigation Bar -->
     <div class="nav">
         <a href="index.html">Home</a>
         <a href="visionmission.html">Vision & Mission</a>
@@ -21,23 +218,40 @@
         <a href="contactus.html">Contact Us</a>
     </div>
 
+    <!-- Cart Button -->
     <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
 
+    <!-- Cart Modal (unchanged) -->
     <div class="cart-modal" id="cart-modal">
-        <h3>Shopping Cart</h3>
-        <div id="cart-items"></div>
-        <div class="cart-total">
-            Total: <span id="cart-total">RS.0</span>
-        </div>
-        <div class="cart-footer">
-            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
-            <a class="proceed-btn tdn" href="checkout.html">Proceed to Checkout</a>
+        <div class="cart-content">
+            <h3>Shopping Cart</h3>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                Total: <span id="cart-total">RS.0</span>
+            </div>
+            <div class="cart-footer">
+                <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+                <a class="proceed-btn" href="checkout.html">Proceed to Checkout</a>
+            </div>
         </div>
     </div>
-    
 
+    <!-- Product Section -->
     <div class="container" id="products-container">
         <!-- Dynamic products will be inserted here -->
+    </div>
+
+    <!-- Service Section -->
+    <div class="service">
+        <h2>Our Service</h2>
+        <p>"Natural & Beautiful Flowers"</p>
+        <p>"We bring nature's beauty to life with fresh, handpicked flowers for every occasion. Whether it's a special event or just to brighten someone's day, our blooms speak louder than words. Experience the joy of giving with our beautiful floral arrangements, delivered with care."</p>
+        <div class="quote">
+            <p>"Delivery services in Sri Lanka"</p>
+        </div>
+        <div class="mission">
+            <p>Our Mission</p>
+        </div>
     </div>
 
     <script>
@@ -77,7 +291,7 @@
             cartItems.innerHTML = '';
             cart.forEach((item, index) => {
                 cartTotal += item.price;
-                cartItems.innerHTML += `
+                cartItems.innerHTML += ` 
                     <div class='cart-item'>
                         <span>${item.name} - RS.${item.price}</span>
                         <button onclick="removeFromCart(${index})">Remove</button>
@@ -114,6 +328,5 @@
 
         document.addEventListener("DOMContentLoaded", updateCart);
     </script>
-    
 </body>
 </html>
