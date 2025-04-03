@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Dreams & Days Flower Shop</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="header">
+        <img src="https://img.freepik.com/premium-vector/dream-logo-design-illustration-template_723072-187.jpg?semt=ais_hybrid" alt="Flower Shop Logo">
+        Dreams & Days
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="checkout-total">
+            Total: <span id="cart-total">RS.0</span>
+        </div>
+
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" required>
+            </div>
+
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message"></div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Update the cart on page load
+        function updateCart() {
+            let cartItemsContainer = document.getElementById('cart-items');
+            let cartTotal = 0;
+
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                cartTotal += item.price;
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} - RS.${item.price}</span>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total').innerText = `RS.${cartTotal}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", updateCart);
+
+     // Handle checkout form submission
+document.getElementById('checkout-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('full-name').value;
+    const address = document.getElementById('address').value;
+    const contact = document.getElementById('contact').value;
+
+    if (name && address && contact) {
+        document.getElementById('checkout-form').reset();
+
+        // Populate the popup with the order details
+        document.getElementById('popup-name').innerText = `Thank you, ${name}!`;
+        document.getElementById('popup-address').innerText = `Your order will be shipped to: ${address}`;
+        document.getElementById('popup-contact').innerText = `A confirmation will be sent to: ${contact}`;
+
+        // Show the popup
+        document.getElementById('order-popup').style.display = 'flex';
+
+        // Clear cart after successful checkout
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCart();
+    }
+});
+
+// Close the popup when the close button is clicked
+document.getElementById('popup-close-btn').addEventListener('click', function() {
+    document.getElementById('order-popup').style.display = 'none';
+});
+
+// Close the popup when the 'X' is clicked
+document.getElementById('popup-close').addEventListener('click', function() {
+    document.getElementById('order-popup').style.display = 'none';
+});
+
+
+    </script>
+
+
+<div id="order-popup" class="popup">
+    <div class="popup-content">
+        <span id="popup-close" class="popup-close">&times;</span>
+        <h2>Thank You for Your Order!</h2>
+        <p id="popup-name"></p>
+        <p id="popup-address"></p>
+        <p id="popup-contact"></p>
+        <a id="popup-close-btn" class="popup-close-btn tdn" href="index.html">Close</a>
+    </div>
+</div>
+
+</body>
+</html>
