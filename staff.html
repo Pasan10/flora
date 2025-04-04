@@ -43,161 +43,123 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <style>
-            /* Global Body Styles */
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f2f5;
-                color: #333;
-                line-height: 1.6;
-            }
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Our Staff - Dreams & Days</title>
+      <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+          margin: 0;
+          padding: 0;
+        }
     
-            /* Add a subtle background image or pattern */
-            body {
-                background: url('https://www.toptal.com/designers/subtlepatterns/patterns/pw-maze.png'), #f0f2f5;
-                background-size: cover;
-                background-attachment: fixed;
-            }
+        .staff-section {
+          max-width: 1200px;
+          margin: 50px auto;
+          padding: 20px;
+          text-align: center;
+        }
     
-            /* Vision and Mission Section */
-            .vision-mission {
-                text-align: center;
-                padding: 50px;
-                background: linear-gradient(135deg, #f0e5f9, #ffebf0);
-                margin: 40px auto;
-                border-radius: 20px;
-                box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-                max-width: 800px;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
+        .staff-section h2 {
+          color: #ff1493;
+          font-size: 36px;
+          font-weight: bold;
+          margin-bottom: 40px;
+        }
     
-            .vision-mission:hover {
-                transform: scale(1.02);
-                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
-            }
+        .staff-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+          padding: 0 20px;
+        }
     
-            /* Title Styles */
-            .vision-mission h2 {
-                margin-bottom: 20px;
-                color: #ff1493;
-                font-size: 32px;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                transition: color 0.3s ease;
-            }
+        .staff-member {
+          background-color: #fff;
+          border-radius: 15px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
     
-            .vision-mission h2:hover {
-                color: #ff69b4;
-            }
+        .staff-member:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
     
-            /* Paragraph Styles */
-            .vision-mission p {
-                font-size: 18px;
-                color: #555;
-                font-weight: 300;
-                margin-bottom: 25px;
-                line-height: 1.8;
-                max-width: 700px;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .staff-member img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+        }
     
-            /* Add a subtle animation for the paragraph text */
-            .vision-mission p {
-                animation: fadeIn 1.5s ease-in-out;
-            }
+        .staff-info {
+          padding: 20px;
+        }
     
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
+        .staff-info h3 {
+          font-size: 22px;
+          color: #d1007c;
+          margin: 10px 0 5px;
+        }
     
-            /* After-Sales Support Section */
-            .after-sales-support {
-                text-align: center;
-                padding: 40px;
-                background: linear-gradient(135deg, #e8f0fc, #f4c2c2);
-                margin: 40px auto;
-                border-radius: 20px;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-                max-width: 800px;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
+        .staff-info p {
+          font-size: 16px;
+          color: #666;
+          margin: 0;
+        }
     
-            .after-sales-support:hover {
-                transform: scale(1.02);
-                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
-            }
+        @media (max-width: 600px) {
+          .staff-section h2 {
+            font-size: 28px;
+          }
     
-            /* Title for After-Sales Support */
-            .after-sales-support h2 {
-                margin-bottom: 20px;
-                color: #ff1493;
-                font-size: 28px;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-            }
-    
-            /* List Styles for After-Sales Support */
-            .after-sales-support ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
-    
-            .after-sales-support ul li {
-                font-size: 18px;
-                color: #555;
-                margin-bottom: 15px;
-                font-weight: 300;
-                line-height: 1.6;
-            }
-    
-            /* Responsive Design for Mobile Devices */
-            @media (max-width: 600px) {
-                .vision-mission, .after-sales-support {
-                    padding: 30px;
-                    margin: 20px;
-                }
-                .vision-mission h2, .after-sales-support h2 {
-                    font-size: 24px;
-                }
-                .vision-mission p, .after-sales-support ul li {
-                    font-size: 16px;
-                }
-            }
-        </style>
+          .staff-member img {
+            height: 200px;
+          }
+        }
+      </style>
     </head>
     <body>
     
-    
-    
-        <!-- After-Sales Support Section -->
-        <div class="after-sales-support">
-            <h2>After-Sales Support</h2>
-            <ul>
-                <li><strong>1. Follow-up with Customers:</strong> Send a thank-you message via email, SMS, or WhatsApp after purchase. Ask for feedback and offer a discount for their next order.</li>
-                <li><strong>2. Handle Complaints Promptly:</strong> Offer a replacement or refund for damaged or wilted flowers. Train staff to handle customer issues politely and efficiently.</li>
-                <li><strong>3. Care Tips for Flowers:</strong> Provide care instructions with every order. Send reminders via email or social media on how to keep flowers fresh longer.</li>
-                <li><strong>4. Loyalty & Rewards Program:</strong> Offer points for every purchase that can be redeemed for discounts. Provide exclusive deals for returning customers.</li>
-                <li><strong>5. Personalized Recommendations:</strong> Use customer purchase history to suggest flowers for upcoming occasions. Offer subscription-based flower delivery services.</li>
-                <li><strong>6. Social Media & Online Engagement:</strong> Encourage customers to share photos of their flowers and tag your shop. Run contests or giveaways to keep them engaged.</li>
-                <li><strong>7. Seasonal Promotions & Reminders:</strong> Send reminders for anniversaries, birthdays, and special occasions. Offer early bird discounts for events like Valentine’s Day and Mother’s Day.</li>
-            </ul>
+      <div class="staff-section">
+        <h2>Meet Our Team</h2>
+        <div class="staff-grid">
+          <div class="staff-member">
+            <img src="https://drive.google.com/thumbnail?id=1cJNYAtwNz0kpWMqag4DxM_eLkJKcYu_Z" alt="D P FERNANDO" />
+            <div class="staff-info">
+              <h3>D P FERNANDO</h3>
+              <p>Manager</p>
+            </div>
+          </div>
+          <div class="staff-member">
+            <img src="https://drive.google.com/thumbnail?id=1gmOcTFsUI38NERDOVknTBY_pfG0GGt6g" alt="A DILINI" />
+            <div class="staff-info">
+              <h3>A DILINI</h3>
+              <p>Floral Designer</p>
+            </div>
+          </div>
+          <div class="staff-member">
+            <img src="https://drive.google.com/thumbnail?id=1LcWcl5gUG5SfmbQ48v9VfkcSI-vz3JaI" alt="K SAMPATH" />
+            <div class="staff-info">
+              <h3>K SAMPATH</h3>
+              <p>Delivery Driver</p>
+            </div>
+          </div>
+          <div class="staff-member">
+            <img src="https://drive.google.com/thumbnail?id=1Eyn9MiUkNf9wyo98xKq0HdLT-KRS_AJh" alt="J K PRASANNA" />
+            <div class="staff-info">
+              <h3>J K PRASANNA</h3>
+              <p>Event Coordinator</p>
+            </div>
+          </div>
         </div>
+      </div>
+    
     </body>
     </html>
+    
 
 
 
