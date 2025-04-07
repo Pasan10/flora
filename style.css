@@ -16,8 +16,7 @@
         font-size: 24px;
     }
     .header img {
-        height: 50px;
-        width: auto; /* Adjust the size of the logo */
+        width: 100px; /* Adjust the size of the logo */
         vertical-align: middle;
         margin-right: 10px;
     }
@@ -113,7 +112,7 @@
         background-color: #ff1493;
         color: white;
         border: none;
-        padding: 5px;
+        padding: 5px 10px;
         cursor: pointer;
         border-radius: 5px;
     }
@@ -198,3 +197,88 @@
         color: #d1007c;
     }
     
+
+    .hero {
+        width: 100%;
+        height: 80vh;
+        background-image: url("pexels-olly-947914.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+      }
+      
+      /* Glass box only around content */
+      .glass-box {
+        background: rgba(0, 0, 0, 0.3); /* light white tint */
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        padding-left: 380px;
+        padding-top: 100px;
+      }
+      
+    
+    /* Ensure content stays above the glass layer */
+    .hero-content {
+        position: relative;
+        z-index: 5;
+    }
+    
+
+   /* Main Heading */
+.heading-primary {
+    font-size: 4rem; /* slightly smaller */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* subtle glow */
+  }
+  
+  /* Emphasized word */
+  .heading-primary span {
+    color: #f205ee; /* slightly brighter blue */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.474);
+  }
+  
+  /* Subheading */
+  .heading-secondary {
+    font-size: 2rem; /* reduced */
+    color: #cdcfff; /* brighter pink */
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px rgba(169, 105, 135, 0.5);
+  }
+  
+  /* Paragraph */
+  .description {
+    font-size: 1.2rem; /* reduced */
+    color: #ffffff;
+    max-width: 500px;
+    margin-bottom: 18px;
+    line-height: 1.4; /* tightened */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.619); /* slight shadow for contrast */
+  }
+  
+  /* Button */
+  .cta-button {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #3a31e4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* button shadow */
+  }
+  
+  .cta-button:hover {
+    background-color: #333;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+  
+  

@@ -17,98 +17,31 @@
         <a href="contactus.html">Contact Us</a>
     </div>
 
-    <div style="display: flex;width: 99vw;">
-        <div class="checkout-container-2" style="width: 60%!important;">
-            <!-- Shipping Details -->
-            <div class="checkout-container-3">
-                <h4>Shipping Details</h4>
-        
-                <form id="checkout-form" style="padding-top: 25px;">
-                    <div class="form-group">
-                        <label for="full-name">Name</label>
-                        <input type="text" id="full-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact">Contact Number</label>
-                        <input type="tel" id="contact" required>
-                    </div>
-                </form>
-            </div>
-
-            <!-- ordered items -->
-            <div class="checkout-container-3">
-        
-                <div class="cart-items" id="cart-items"></div>
-        
-                <div id="confirmation-message" class="confirmation-message"></div>
-            </div>
-
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="checkout-total">
+            Total: <span id="cart-total">RS.0</span>
         </div>
-    
-        <div class="checkout-container-2" style="width: 40%!important;">
-            <div class="checkout-container-3">
-                <h4>Summary</h4>
-        
-                <form id="checkout-form" style="padding-top: 25px;">
-                    <div class="form-group" style="display: flex;justify-content: space-between;">
-                        <label for="full-name">Sub Total</label>
-                        <span id="cart-total">RS.0</span>
-                    </div>
-    
-                    <div class="form-group" style="display: flex;justify-content: space-between;">
-                        <label for="full-name">Shipping fee</label>
-                        <span >RS.375</span>
-                    </div>
-    
-                    <div class="form-group" style="display: flex;justify-content: space-between;    font-weight: 700;font-size: 18px;">
-                        <label for="full-name">Total</label>
-                        <span id="cart-total2">RS.0</span>
-                    </div>
-        
-                </form>
-                
-                <div id="confirmation-message" class="confirmation-message"></div>
+
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" required>
             </div>
 
-            <div class="checkout-container-3">
-                <h4>Payment Methods</h4>
-        
-                <form id="checkout-form" style="padding-top: 25px; display: flex;flex-direction: column;gap: 16px;">
-                    <div style="display: flex;justify-content: start;align-items: center;gap: 20px;">
-                        <div style="display: flex;justify-content: center;align-items: center;gap: 10px;">
-                            <input type="radio" name="koko" value="koko">
-                            <img style="width: 30px;height: 30px;" src="kokoPay.png" alt="koko">
-                        </div>
-                        <label for="full-name" style="font-weight: 500;">Koko Pay</label>
-                    </div>
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
 
-                    <div style="display: flex;justify-content: start;align-items: center;gap: 20px;">
-                        <div style="display: flex;justify-content: center;align-items: center;gap: 10px;">
-                            <input type="radio" name="koko" value="koko">
-                            <img style="width: 30px;height: 30px;" src="atm-card.png" alt="koko">
-                        </div>
-                        <label for="full-name" style="font-weight: 500;">Card Payment</label>
-                    </div>
-
-                    <div style="display: flex;justify-content: start;align-items: center;gap: 20px;">
-                        <div style="display: flex;justify-content: center;align-items: center;gap: 10px;">
-                            <input type="radio" name="koko" value="koko">
-                            <img style="width: 30px;height: 30px;" src="cash-on-delivery.png" alt="koko">
-                        </div>
-                        <label for="full-name" style="font-weight: 500;">Cash On Delivery</label>
-                    </div>
-        
-                    <button type="submit" class="checkout-btn">Place Order</button>
-                </form>
-                
-                <div id="confirmation-message" class="confirmation-message"></div>
-            </div>
-        </div>
-        
+        <div id="confirmation-message" class="confirmation-message"></div>
     </div>
 
     <script>
@@ -120,32 +53,16 @@
             let cartTotal = 0;
 
             cartItemsContainer.innerHTML = '';
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
                 cartTotal += item.price;
                 cartItemsContainer.innerHTML += `
-                    <div class='cart-item' style="display: flex;align-items: center;justify-content: space-between;">
-                        <div style="display: flex;align-items: center;gap: 50px;">
-                            <img style="width: 30px;height: 30px;" src="${item.image}" alt="${item.name}">
-                            <div style="display: flex;flex-direction: column;gap: 5px;">
-                                <span>${item.name}</span>    
-                                <span style="font-size: 12px;font-weight: 600;">RS.${item.price}</span>    
-                            </div>    
-                        </div>
-                        <button onclick="removeFromCart(${index})" style="background: #ff1493;border: none;padding: 5px;border-radius: 3px;">
-                            <img src="delete.png" alt="Remove" style="width: 15px;height: 15px;">    
-                        </button>
+                    <div class="cart-item">
+                        <span>${item.name} - RS.${item.price}</span>
                     </div>
                 `;
             });
 
             document.getElementById('cart-total').innerText = `RS.${cartTotal}`;
-            document.getElementById('cart-total2').innerText = `RS.${cartTotal+375}`;
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCart();
         }
 
         document.addEventListener("DOMContentLoaded", updateCart);
