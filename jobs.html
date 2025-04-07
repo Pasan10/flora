@@ -1,13 +1,26 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreams & Days - Flower Shop</title>
+    <style>
+        .cart-count {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+            top: 7%;
+            right: 4%;
+        }
+    </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +38,11 @@
         <a href="contactus.html">Contact Us</a>
     </div>
 
-    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+    <!-- Cart Button -->
+    <div class="cart" style="display: flex;align-items: center;justify-content: center;gap: 10px;z-index: 1000000000000;" onclick="toggleCart()">
+        <img src="shopping-cart.png" alt="Cart Icon" style="width: 30px; height: 30px;">
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
 
     <div class="cart-modal" id="cart-modal">
         <h3>Shopping Cart</h3>
