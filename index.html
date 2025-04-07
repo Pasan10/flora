@@ -197,6 +197,61 @@
                 padding: 15px;
             }
         }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .hero-text {
+            width: 50%;
+            position: absolute;
+            top: 31%;
+            left: 4%;
+            z-index: 2;
+            color: black;
+            text-align: center;
+            /* background-color: rgba(0, 0, 0, 0.5); */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero-text h3 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .cart-count {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+            top: 7%;
+            right: 4%;
+        }
     </style>
 </head>
 <body>
@@ -219,10 +274,13 @@
     </div>
 
     <!-- Cart Button -->
-    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+    <div class="cart" style="display: flex;align-items: center;justify-content: center;gap: 10px;" onclick="toggleCart()">
+        <img src="shopping-cart.png" alt="Cart Icon" style="width: 30px; height: 30px;">
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
 
     <!-- Cart Modal (unchanged) -->
-    <div class="cart-modal" id="cart-modal">
+    <div class="cart-modal" style="z-index: 10000;" id="cart-modal">
         <div class="cart-content">
             <h3>Shopping Cart</h3>
             <div id="cart-items"></div>
@@ -237,8 +295,16 @@
     </div>
 
     <!-- Product Section -->
-    <div class="container" id="products-container">
+    <!-- <div class="container" id="products-container"> -->
         <!-- Dynamic products will be inserted here -->
+    <!-- </div> -->
+
+    <div class="hero-section">
+        <img src="main_image_home.jpg" alt="Fresh Flowers" class="hero-image">
+        <div class="hero-text">
+            <h3 style="color: #d1007cad;">Fresh Flowers</h3>
+            <p style="text-align: justify;font-style: italic;    opacity: 0.4;">"We bring nature's beauty to life with fresh, handpicked flowers for every occasion. Whether it's a special event or just to brighten someone's day, our blooms speak louder than words. Experience the joy of giving with our beautiful floral arrangements, delivered with care."</p>
+        </div>
     </div>
 
     <!-- Service Section -->
