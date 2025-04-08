@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreams & Days - Flower Shop</title>
+    <style>
+        .cart-count {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+            top: 7%;
+            right: 4%;
+        }
+    </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="vmstyle.css">
 </head>
@@ -22,13 +39,17 @@
         <a href="contactus.html">Contact Us</a>
     </div>
 
-    <div class="cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+    <!-- Cart Button -->
+    <div class="cart" style="display: flex;align-items: center;justify-content: center;gap: 10px;z-index: 1000000000000;" onclick="toggleCart()">
+        <img src="shopping-cart.png" alt="Cart Icon" style="width: 30px; height: 30px;">
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
 
     <div class="cart-modal" id="cart-modal">
         <h3>Shopping Cart</h3>
         <div id="cart-items"></div>
-        <div class="cart-total">
-            Total: <span id="cart-total">RS.0</span>
+        <div class="cart-total" style="font-weight: 700;" >
+            Total: <span style="font-weight: 700;color: #ff1493;" id="cart-total">RS.0</span>
         </div>
         <div class="cart-footer">
             <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
@@ -59,8 +80,8 @@
     <script>
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
+        function addToCart(name, price, image) {
+            cart.push({ name, price, image });
             localStorage.setItem("cart", JSON.stringify(cart));
             updateCart();
         }
@@ -74,9 +95,17 @@
             cart.forEach((item, index) => {
                 cartTotal += item.price;
                 cartItems.innerHTML += `
-                    <div class='cart-item'>
-                        <span>${item.name} - RS.${item.price}</span>
-                        <button onclick="removeFromCart(${index})">Remove</button>
+                    <div class='cart-item' style="display: flex;align-items: center;">
+                        <div style="display: flex;align-items: center;gap: 10px;">
+                            <img style="width: 30px;height: 30px;" src="${item.image}" alt="${item.name}">
+                            <div style="display: flex;flex-direction: column;gap: 5px;">
+                                <span>${item.name}</span>    
+                                <span style="font-size: 12px;font-weight: 600;">RS.${item.price}</span>    
+                            </div>    
+                        </div>
+                        <button onclick="removeFromCart(${index})">
+                            <img src="delete.png" alt="Remove" style="width: 20px;height: 20px;">    
+                        </button>
                     </div>
                 `;
             });
